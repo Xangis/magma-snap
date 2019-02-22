@@ -1,14 +1,19 @@
-name: magma-mud # you probably want to 'snapcraft register <name>'
-version: '3.05' # just for humans, typically '1.2+git' or '1.3.2'
-summary: The Magma Multi-User Dungeon Engine # 79 char long summary
+name: magma-mud
+version: '3.06'
+summary: The Magma Multi-User Dungeon (MUD) Engine
 description: |
   Magma is an oldschool multi-user dungeon similar to what was popular in
   the 1990s. It runs a multiplayer text-based dungeon crawl game as a 
   telnet server on port 4001 by default. It has player-vs-player combat
   enabled as one of its core features.
 
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+grade: stable
+confinement: strict
+
+apps:
+  magma:
+    command: bin/magma
+    aliases: [magma]
 
 parts:
   magma:
@@ -16,3 +21,4 @@ parts:
     source-type: git
     plugin: cmake
     build-packages: [g++]
+

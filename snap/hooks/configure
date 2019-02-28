@@ -5,6 +5,11 @@ set -e
 MAGMA_HOME=$SNAP_COMMON/magma/
 
 if [ ! -d $MAGMA_HOME/area ]; then
+  if [ ! -d $MAGMA_HOME ]; then
+    echo "-- Creating MAGMA_HOME --"
+    mkdir -p $MAGMA_HOME;
+  fi
+
   echo "-- DEPLOYING SYSTEM AND AREA FILES --"
   cp -R $SNAP/share/magma/* $MAGMA_HOME;
   chmod -R 777 $MAGMA_HOME;

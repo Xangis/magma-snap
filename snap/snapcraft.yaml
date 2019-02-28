@@ -17,6 +17,7 @@ apps:
       MAGMA_HOME: $SNAP_COMMON/magma/
     aliases: [magma]
     plugs: [network, network-bind]
+    daemon: simple
 
 parts:
   magma:
